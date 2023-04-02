@@ -56,7 +56,7 @@ pip install -r requirements.txt
     ```bash
     cd sft/ && deepspeed train_sft.py
     ```
-    Checkpoint: [SFT](https://huggingface.co/xinyu66/catgpt_sft)
+    Checkpoint: [SFT](https://huggingface.co/xinyu66/catgpt-sft)
 
 2. Train Reward Model:
     ```bash
@@ -65,7 +65,7 @@ pip install -r requirements.txt
     Download reward model checkpoint:
     ```bash
     mkdir reward_model/rm_checkpoint
-    wget https://huggingface.co/xinyu66/catgpt-sft/resolve/main/pytorch_model.bin -O reward_model/rm_checkpoint/pytorch_model.bin
+    wget https://huggingface.co/xinyu66/catgpt-rewardmodel/resolve/main/pytorch_model.bin -O reward_model/rm_checkpoint/pytorch_model.bin
     ```__
 
 3. PPO training:
@@ -73,7 +73,7 @@ pip install -r requirements.txt
     mkdir ppo
     accelerate launch --config_file configs/default_accelerate_config.yaml trlx_ppo.py
     ```
-    Checkpoint: [PPO](https://huggingface.co/xinyu66/catgpt_ppo)
+    Checkpoint: [PPO](https://huggingface.co/xinyu66/catgpt-ppo)
 
     🩹 Warning: This particular training configuration requires at least 55GB of VRAM and is setup to use 8 GPUs, decrease `batch_size` in case you're running out of memory.
 
